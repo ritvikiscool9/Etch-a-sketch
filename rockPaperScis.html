@@ -6,7 +6,45 @@
     </head>
     <body>
         <script>
-            console.log("hello world");
+
+            let humanScore = 0;
+            let computerScore = 0;
+            
+            function getComputerChoice(){
+                let choice = (Math.random()*4)
+                console.log(choice);
+                if(choice >= 0 && choice < 1){
+                    return "rock";
+                }else if(choice >= 1 && choice < 2){
+                    return "paper";
+                }else{
+                    return "scissors";
+                }
+            }
+
+            function getHumanChoice(){
+                let message = "Rock Paper Scissors?"
+                let result = prompt(message).toLowerCase();
+                //console.log(result)
+
+                if(result == "rock"){ 
+                    return "rock";  
+                }else if(result == "paper"){
+                    return "paper";
+                }else if (result == "scissors"){
+                    return "scissors";
+                }else{
+                    console.log("Not an option");
+                    getHumanChoice();
+                }
+            }
+
+            function playRound(humanChoice, computerChoice){
+
+            }
+            const computerSelection = getComputerChoice();
+            const humanSelection =  getHumanChoice();  
+            playRound(humanSelection,computerSelection);
         </script>
 
     </body>
