@@ -1,16 +1,20 @@
 
-const container = document.getElementById('container');
+const container = document.querySelector('#container');
+const button = document.querySelector("#btn-new")
+const buttonReset = document.querySelector("#btn-reset")
 
 
-function createGrid(){
+
+function createGrid(gridSize){
     container.style.display = 'flex';
     container.style.flexDirection = 'column';
 
-    for(let i = 0; i < 16; i++){
+    for(let i = 0; i < gridSize; i++){
         const row = document.createElement("div");
+        
         row.style.display = 'flex';
 
-        for(let j = 0; j < 16; j++){
+        for(let j = 0; j < gridSize; j++){
             const square = document.createElement('div');
             square.style.border = '1px solid black'; 
             square.style.height = '40px'; 
@@ -22,18 +26,49 @@ function createGrid(){
             row.appendChild(square);
         }
         container.append(row);
+        }
     }
-}
 
-function changeBackground(){
-    r = (Math.random()*255);
-    g = (Math.random()*255);
-    b = (Math.random()*255);
+    function changeBackground(){
+        r = (Math.random()*255);
+        g = (Math.random()*255);
+        b = (Math.random()*255);
 
-    return[r,g,b];
+        return[r,g,b];
+    }
 
-}
+    function getGridSize(){
+        let size = prompt("Enter the size of the gird");
+        if(size > 100){
+            alert("Invalid size!");
+            getGridSize();
+            
+        }else{
+            return size;
+        }
+        
+    }
+
+    function resetGrid(){
+        const squares = container.querySelectorAll('#container div');
+        
+        squares.forEach(square => {
+            square.style.background = 'white';
+        });
+    }
+
+    button.addEventListener('click',() => {
+        let gridSize = getGridSize();
+        createGrid(gridSize);
+    });
+
+    buttonReset.addEventListener('click',() => {
+        resetGrid();
+    });
+    
 
 
-createGrid();
+
+
+createGrid(16); 
 
