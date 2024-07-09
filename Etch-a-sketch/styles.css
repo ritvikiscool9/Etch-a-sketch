@@ -27,8 +27,7 @@
     flex-direction: column;
     background-color: white;
     border: 20px solid grey;
-    width: 650px;
-    height:650px;
+    border-bottom: 20px solid grey;
 
 }
 

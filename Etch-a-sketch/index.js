@@ -6,33 +6,40 @@ const buttonReset = document.querySelector("#btn-reset")
 
 
 function createGrid(gridSize){
+    const gridWidth = 650;
+    const gridHeight = 650;
+    
+
     container.style.display = 'flex';
-    container.style.flexDirection = 'column';
+    container.style.flexWrap = 'wrap';
+    container.style.width = `${gridWidth}px` 
+    container.style.height= `${gridHeight}px`      
+    
 
-    for(let i = 0; i < gridSize; i++){
-        const row = document.createElement("div");
-        
-        row.style.display = 'flex';
+    const squareSize = Math.min((gridWidth - gridSize * 2) / gridSize, (gridHeight - gridSize * 2) / gridSize);
 
-        for(let j = 0; j < gridSize; j++){
-            const square = document.createElement('div');
-            square.style.border = '1px solid black'; 
-            square.style.height = '40px'; 
-            square.style.width = '40px';
-            square.addEventListener("mouseover",() =>{
-                let colors = changeBackground();
-                square.style.background = `rgb(${colors[0]},${colors[1]},${colors[2]})`
-            });
-            row.appendChild(square);
-        }
-        container.append(row);
-        }
+    container.innerHTML = '';
+
+    
+    for(let i = 0; i < gridSize * gridSize; i++){
+        const square = document.createElement('div');
+        square.style.border = '1px solid black'; 
+        square.style.height = `${squareSize}px`; 
+        square.style.width = `${squareSize}px`;
+        square.addEventListener("mouseover",() =>{
+            let colors = changeBackground();
+            square.style.background = `rgb(${colors[0]},${colors[1]},${colors[2]})`
+        });
+        container.append(square);
     }
+    
+    
+}
 
     function changeBackground(){
-        r = (Math.random()*255);
-        g = (Math.random()*255);
-        b = (Math.random()*255);
+        let r = (Math.random()*255);
+        let g = (Math.random()*255);
+        let b = (Math.random()*255);
 
         return[r,g,b];
     }
@@ -42,11 +49,8 @@ function createGrid(gridSize){
         if(size > 100){
             alert("Invalid size!");
             getGridSize();
-            
-        }else{
-            return size;
         }
-        
+        return size;
     }
 
     function resetGrid(){
