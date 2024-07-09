@@ -1,3 +1,10 @@
+body{
+    font-family: Didot;
+}
+
+
+
+
 .parent-container{
     display:flex;
     align-items: center;
@@ -14,12 +21,11 @@
     justify-content: center;;
 }
 
-.button-location{
+.btn-location{
     display:flex;
     align-items:center;
     justify-content: center;
     flex-direction: column;
-    
 }
 
 #container{
@@ -31,12 +37,15 @@
 
 }
 
+
 #btn-new{
     margin-right:60px;
     background-color: rgb(71, 255, 71);
     border: 5px solid grey;
     width:160px;
     height:80px;
+    font-size: 24px;
+    
 }
 
 #btn-reset{
@@ -46,12 +55,14 @@
     width:160px;
     height:80px;
     margin-top: 40px;
-
+    font-size: 24px;
+    
 }
 
 #title{
-    margin-left: 160px;
+    margin-left: 215px;
     font-family: Didot, "Times New Roman", Times, serif;
+    font-size:40px;
 }
 
 
