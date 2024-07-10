@@ -1,0 +1,51 @@
+#container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    
+}
+
+#control{
+    background-color: darkgray;    
+    padding:10px;
+}
+
+#control button{
+    display:flex;
+    flex-direction: column;
+    width:80px;
+    height:80px;
+    justify-content: center;
+    align-items: center; 
+    font-size: large;
+    border-radius:10px;
+    background-color: white;
+    
+
+}
+
+#rowOne, #rowTwo, #rowThree, #rowFour{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+#rowTwo{
+    margin-right:78px;
+}
+
+
+#control #equals{
+    height:170px;
+    margin-top:-90px;
+}
+
+#display{
+    background-color: blue;
+}
+
+
+
